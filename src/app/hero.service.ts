@@ -29,12 +29,20 @@ export class HeroService {
     );
   }
 
+  /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
+  /**getHero(id: number): Observable<Hero> {
     // Send message after fetching hero
     this.messageService.add(`HeroService says : fetched hero id  = ${id}`); // /!\ backtick to bind property (id here)
 
     return of(HEROES.find(hero => hero.id === id));
-  }
+  }*/
 
   private log(message: string) {
     this.messageService.add(`HeroService says : ${message}`);
