@@ -1,0 +1,12 @@
+<div *ngIf="hero">
+
+  <h2>{{ hero.name | uppercase}}</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+
+  <div>
+    <label>Name : 
+      <input [(ngModel)]="hero.name" placeholder="name"><!-- [(ngModel)] = two-ways binding. import { FormsModule } from '@angular/forms' in app.module -->
+    </label>
+  </div>
+  
+</div>
