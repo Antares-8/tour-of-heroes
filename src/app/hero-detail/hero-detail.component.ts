@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router'; // to extract the id in the detail route to display the hero
-import { Location } from '@angular/common';
+import { Location } from '@angular/common'; //  = service for navigation back for instance 
 import { HeroService }  from '../hero.service';
 
 @Component({
@@ -21,6 +21,10 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   getHero(): void {
