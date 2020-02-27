@@ -36,4 +36,9 @@ export class HeroDetailComponent implements OnInit {
 // The paramMap is a dictionary of route parameter values extracted from the URL. The "id" key returns the id of the hero to fetch.
 // Route parameters are always strings. The JavaScript (+) operator converts the string to a number, which is what a hero id should be.
 
+  save(): void {
+   this.heroService.updateHero(this.hero)
+     .subscribe(() => this.goBack());
+  }
+
 }
