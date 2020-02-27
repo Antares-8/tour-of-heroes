@@ -11,7 +11,7 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
 
-  selectedHero: Hero;
+  // selectedHero: Hero;
 
   heroes: Hero[];
 
@@ -21,10 +21,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroService says : Selected hero name is ${hero.name}`); // /!\ backtick to bind datas 
-  }
+//  onSelect(hero: Hero): void {
+//    this.selectedHero = hero;
+//    this.messageService.add(`HeroService says : Selected hero name is ${hero.name}`); // /!\ backtick to bind datas 
+//  }
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
