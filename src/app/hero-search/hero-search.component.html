@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label></h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" /> <!-- each time the user types in the textbox, the bindong calls search() with the textbox value -->
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" > <!-- $ = convention to indicate that heroes$ is an observable, not an array -->
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
